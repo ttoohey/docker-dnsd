@@ -1,0 +1,32 @@
+{
+  "name": "docker-dnsd",
+  "version": "1.0.0",
+  "description": "A local DNS server that replies with Docker container IP addresses for queries matching a container's network alias",
+  "files": [
+    "dist/*.js",
+    "bin/*.js"
+  ],
+  "bin": {
+    "docker-dnsd": "bin/docker-dnsd.js"
+  },
+  "homepage": "https://github.com/ttoohey/docker-dnsd",
+  "bugs": "https://github.com/ttoohey/docker-dnsd/issues",
+  "license": "ISC",
+  "dependencies": {
+    "dnsd": "^0.9.6",
+    "harbor-master": "^1.32.1",
+    "optionator": "^0.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.14.8",
+    "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.8"
+  },
+  "scripts": {
+    "build": "babel -d dist src",
+    "clean": "rm -rf dist",
+    "prepare": "npm run build",
+    "prepublish": "npm run clean && npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
